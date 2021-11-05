@@ -15,13 +15,17 @@ import com.example.book_store_app.fragments.CartFragment;
 import com.example.book_store_app.fragments.CategoryFragment;
 import com.example.book_store_app.fragments.HomeFragment;
 import com.example.book_store_app.fragments.ProfileFragment;
+import com.example.book_store_app.models.CartModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
+    public static ArrayList<CartModel> cartModels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void addControls() {
         bottomNavigationView=findViewById(R.id.bottom_navigation);
+        if(cartModels!=null){
+            return;
+        }else {
+            cartModels=new ArrayList<>();
+        }
     }
 
     private NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {

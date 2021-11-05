@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toolbar;
 
@@ -21,6 +23,7 @@ import com.example.book_store_app.R;
 import com.example.book_store_app.databinding.ActivityDetailBookBinding;
 import com.example.book_store_app.databinding.ActivityLoginBinding;
 import com.example.book_store_app.models.BookModel;
+import com.example.book_store_app.models.CartModel;
 import com.example.book_store_app.utils.CheckConnection;
 import com.example.book_store_app.utils.Server;
 import com.squareup.picasso.Picasso;
@@ -32,6 +35,11 @@ import java.text.DecimalFormat;
 public class DetailBookActivity extends AppCompatActivity {
     ActivityDetailBookBinding binding;
     Integer IDBook;
+    String imgBook="";
+    String title="";
+    String author="";
+    Double price=0.0;
+    Integer rate=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +62,36 @@ public class DetailBookActivity extends AppCompatActivity {
             CheckConnection.showToast(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");
         }
 
+        addEvents();
     }
 
+    private void addEvents() {
+        addToCart();
+    }
 
+    private void addToCart() {
+        binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (MainActivity.cartModels.size() > 0) {
+                    int sl=1;
+                    for (int i = 0; i < MainActivity.cartModels.size(); i++) {
+                        if (MainActivity.cartModels.get(i).getId() == IDBook) {
+                            MainActivity.cartModels.get(i).setQuantity(MainActivity.cartModels.get(i).getQuantity() + sl);
+
+                            MainActivity.cartModels.get(i).setPrice(price * MainActivity.cartModels .get(i).getQuantity());
+                        }
+                    }
+                } else {
+                    int soLuong = 1;
+                    Double total = price * soLuong;
+                    MainActivity.cartModels.add(new CartModel(IDBook,title,"",author,imgBook,price,rate,5,soLuong));
+                }
+                Intent intent = new Intent(getApplicationContext(), CartActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 
     @Override
@@ -79,12 +114,17 @@ public class DetailBookActivity extends AppCompatActivity {
                         try {
                             if(response!=null){
                                     JSONObject jsonObject = response;
-                                    binding.txtNameDetail.setText(jsonObject.getString("name"));
-                                     DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-                                    binding.txtPriceDetail.setText(decimalFormat.format(jsonObject.getDouble("price"))+"đ");
-                                    Picasso.get().load(jsonObject.getString("thumbnail_url")).placeholder(R.drawable.noimage).error(R.drawable.error).into(binding.imgBookDetail);
+                                    title=jsonObject.getString("name");
+                                    binding.txtNameDetail.setText(title);
+                                    price=jsonObject.getDouble("price");
+                                    DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+                                    binding.txtPriceDetail.setText(decimalFormat.format(price)+"đ");
 
-                                    binding.rbStarDetail.setNumStars(jsonObject.getInt("rating_average"));
+                                    imgBook=jsonObject.getString("thumbnail_url");
+                                    Picasso.get().load(imgBook).placeholder(R.drawable.noimage).error(R.drawable.error).into(binding.imgBookDetail);
+
+                                    rate=jsonObject.getInt("rating_average");
+                                    binding.rbStarDetail.setNumStars(rate);
                                     binding.txtPercentDetail.setText("-"+String.valueOf(jsonObject.getInt("discount_rate"))+"%");
 
                                     String description = jsonObject.getString("description");

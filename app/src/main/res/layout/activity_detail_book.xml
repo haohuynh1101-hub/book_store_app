@@ -124,6 +124,7 @@
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddToCart"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="Thêm vào giỏ"
@@ -135,7 +136,7 @@
             />
 
         <com.google.android.material.button.MaterialButton
-
+            android:id="@+id/btnBuyNow"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="Mua ngay"
