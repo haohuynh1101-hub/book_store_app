@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -19,30 +20,31 @@ import com.squareup.picasso.Picasso;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.ItemHolder> {
-    Context context;
-    ArrayList<BookModel> bookArrayList;
+public class ListViewBookApdater extends  RecyclerView.Adapter<ListViewBookApdater.ItemHolder> implements View.OnClickListener {
 
-    public BestSellerAdapter(Context context, ArrayList<BookModel> bookArrayList) {
+    Context context;
+    ArrayList<BookModel> books;
+
+    public ListViewBookApdater(Context context, ArrayList<BookModel> books) {
         this.context = context;
-        this.bookArrayList = bookArrayList;
+        this.books = books;
     }
+
+
     @NonNull
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.row_bestseller_book,null);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.row_horizental_book,null);
         ItemHolder itemHolder=new ItemHolder(view);
 
         return itemHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemHolder holder, int position) {
-        BookModel book=bookArrayList.get(position);
+    public void onBindViewHolder(@NonNull ListViewBookApdater.ItemHolder holder, int position) {
+        BookModel book=books.get(position);
 //        holder.txtTitle.setText(book.getTitle());
-
-        holder.txtTitle.setMaxLines(1);
+        holder.txtTitle.setMaxLines(2);
         holder.txtTitle.setEllipsize(TextUtils.TruncateAt.END);
         holder.txtTitle.setText(book.getTitle());
         holder.txtAuthor.setText(book.getAuthor());
@@ -51,27 +53,35 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.It
         holder.txtPrice.setText(decimalFormat.format(book.getPrice()) +"đ");
         holder.txtPercent.setText(book.getDiscount_rate()+"%");
         Picasso.get().load(book.getImage()).placeholder(R.drawable.noimage).error(R.drawable.error).into(holder.imgBook);
+
     }
 
     @Override
     public int getItemCount() {
-        return bookArrayList.size();
+        return books.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 
     public class ItemHolder extends RecyclerView.ViewHolder {
+
+
         ImageView imgBook;
         TextView txtTitle,txtPrice,txtAuthor,txtPercent;
         RatingBar rbStar;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgBook=itemView.findViewById(R.id.imgBook);
-            txtTitle=itemView.findViewById(R.id.txtTitle);
-            txtPrice=itemView.findViewById(R.id.txtPrice);
-            txtAuthor=itemView.findViewById(R.id.txtAuthor);
-            txtPercent=itemView.findViewById(R.id.txtPercent);
-
-            rbStar=itemView.findViewById(R.id.rbStar);
+            imgBook=itemView.findViewById(R.id.imgBookHorizontal);
+            txtTitle=itemView.findViewById(R.id.txtName);
+            txtPrice=itemView.findViewById(R.id.txtPriceHorizontal);
+            txtAuthor=itemView.findViewById(R.id.txtAuthorHorizontal);
+            txtPercent=itemView.findViewById(R.id.txtPercentHorizontal);
+            rbStar=itemView.findViewById(R.id.rbStarHorizontal);
         }
     }
+
 }

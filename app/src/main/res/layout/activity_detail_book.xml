@@ -1,52 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <androidx.cardview.widget.CardView
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailBookActivity"
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        android:layout_marginHorizontal="8dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-
+        android:orientation="horizontal"
         >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="250dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:background="@drawable/custom_book_bestseller"
+            android:gravity="center_vertical"
             >
-            <ImageView
-                android:id="@+id/imgBook"
-                android:layout_width="160dp"
-                android:layout_height="200dp"/>
-
             <TextView
-                android:id="@+id/txtTitle"
+                android:id="@+id/txtName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Trước ngày em đến"
                 android:textSize="20sp"
-                android:maxLength="16"
-                android:text="Hello"
                 android:textColor="#000"
                 />
 
             <TextView
-                android:id="@+id/txtAuthor"
+                android:id="@+id/txtAuthorHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Trước ngày em đến"
                 android:textSize="16sp"
-                android:maxLength="16"
-                android:text="Hello"
                 android:textColor="@color/gray_400"
                 />
 
             <RatingBar
-                android:id="@+id/rbStar"
+                android:id="@+id/rbStarHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:rating="3.5"
@@ -60,7 +56,7 @@
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/txtPrice"
+                    android:id="@+id/txtPriceHorizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Price"
@@ -70,7 +66,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/txtPercent"
+                    android:id="@+id/txtPercentHorizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
@@ -83,6 +79,6 @@
                     />
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
 </LinearLayout>

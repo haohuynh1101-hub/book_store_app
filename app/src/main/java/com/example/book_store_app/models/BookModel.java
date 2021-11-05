@@ -1,6 +1,8 @@
 package com.example.book_store_app.models;
 
-public class BookModel {
+import java.io.Serializable;
+
+public class BookModel implements Serializable {
     private int id;
     private String title;
     private String description;
@@ -8,8 +10,9 @@ public class BookModel {
     private String image;
     private Double price;
     private Integer rate;
+    private Integer discount_rate;
 
-    public BookModel(int id, String title, String description, String author, String image, Double price, Integer rate) {
+    public BookModel(int id, String title, String description, String author, String image, Double price, Integer rate,Integer discount_rate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -17,6 +20,8 @@ public class BookModel {
         this.image = image;
         this.price = price;
         this.rate = rate;
+        this.discount_rate = discount_rate;
+
     }
 
     public int getId() {
@@ -75,6 +80,14 @@ public class BookModel {
         this.rate = rate;
     }
 
+    public Integer getDiscount_rate() {
+        return discount_rate;
+    }
+
+    public void setDiscount_rate(Integer discount_rate) {
+        this.discount_rate = discount_rate;
+    }
+
     @Override
     public String toString() {
         return "BookModel{" +
@@ -85,6 +98,7 @@ public class BookModel {
                 ", image='" + image + '\'' +
                 ", price=" + price +
                 ", rate=" + rate +
+                ", discount_rate=" + discount_rate +
                 '}';
     }
 }

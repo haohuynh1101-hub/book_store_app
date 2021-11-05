@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:cardCornerRadius="8dp"
+       app:cardElevation="4dp"
+       app:cardUseCompatPadding="true"
+       >
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:paddingHorizontal="8dp"
+           >
+           <ImageView
+               android:id="@+id/imgBookHorizontal"
+               android:layout_width="150dp"
+               android:layout_height="200dp"/>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="200dp"
+               android:orientation="vertical"
+               android:gravity="center_vertical"
+               android:paddingHorizontal="8dp"
+               >
+               <TextView
+                   android:id="@+id/txtName"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Trước ngày em đến"
+                   android:textSize="20sp"
+                   android:textColor="#000"
+                   />
+
+               <TextView
+                   android:id="@+id/txtAuthorHorizontal"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Trước ngày em đến"
+                   android:textSize="16sp"
+                   android:textColor="@color/gray_400"
+                   />
+
+               <RatingBar
+                   android:id="@+id/rbStarHorizontal"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:rating="3.5"
+                   style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                   android:theme="@style/RatingBar"
+                   android:stepSize="0.1" />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:id="@+id/txtPriceHorizontal"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Price"
+                       android:textSize="16sp"
+                       android:textColor="@color/second_400"
+                       android:textStyle="bold"
+                       />
+
+                   <TextView
+                       android:id="@+id/txtPercentHorizontal"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="16dp"
+                       android:text="-5%"
+                       android:textSize="14sp"
+                       android:background="@drawable/custom_text"
+                       android:paddingHorizontal="8dp"
+                       android:paddingVertical="2dp"
+                       android:textColor="@color/second_400"
+                       />
+               </LinearLayout>
+           </LinearLayout>
+       </LinearLayout>
+
+   </androidx.cardview.widget.CardView>
+</LinearLayout>
