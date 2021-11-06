@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,6 +26,7 @@ import com.example.book_store_app.databinding.FragmentHomeBinding;
 import com.example.book_store_app.models.BookModel;
 import com.example.book_store_app.utils.CheckConnection;
 import com.example.book_store_app.utils.Server;
+import com.synnapps.carouselview.ImageListener;
 
 import org.json.JSONObject;
 
@@ -44,6 +46,8 @@ public class HomeFragment extends Fragment {
     ListViewBookApdater listViewBookApdater;
 
     FragmentHomeBinding binding;
+
+    int[] sampleImages = {R.drawable.image_banner1, R.drawable.image_banner1, R.drawable.image_banner1};
 
 
     @Override
@@ -175,5 +179,16 @@ public class HomeFragment extends Fragment {
         binding.rvPopularBook.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         binding.rvPopularBook.setItemAnimator(new DefaultItemAnimator());
         binding.rvPopularBook.setAdapter(listViewBookApdater);
+
+        //handle carousel
+        binding.carouselView.setPageCount(sampleImages.length);
+        binding.carouselView.setImageListener(imageListener);
+
     }
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
 }
