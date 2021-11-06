@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import com.example.book_store_app.fragments.CategoryFragment;
 import com.example.book_store_app.fragments.HomeFragment;
 import com.example.book_store_app.fragments.ProfileFragment;
 import com.example.book_store_app.models.CartModel;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,12 +37,33 @@ public class MainActivity extends AppCompatActivity {
 
         addControls();
         addEvents();
+        initBadge();
+    }
 
+    private void initBadge() {
+        BadgeDrawable badgeDrawable=bottomNavigationView.getOrCreateBadge(R.id.nav_cart);
+        badgeDrawable.setBackgroundColor(Color.RED);
+        badgeDrawable.setBadgeTextColor(Color.WHITE);
+        badgeDrawable.setMaxCharacterCount(5);
+        if(cartModels.size()>0){
+            Log.d("TAG", "addControls: "+cartModels.size());
+            badgeDrawable.setNumber(cartModels.size());
+            badgeDrawable.setVisible(true);
+        }else {
+            badgeDrawable.setVisible(false);
+        }
     }
 
     private void addEvents() {
+        Bundle extras = getIntent().getExtras();
+        if(extras == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new HomeFragment()).commit();
+        }else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new CartFragment()).commit();
+        }
+
         bottomNavigationView.setOnItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new HomeFragment()).commit();
+
     }
 
     private void addControls() {
@@ -49,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         }else {
             cartModels=new ArrayList<>();
         }
+
+
     }
 
     private NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {

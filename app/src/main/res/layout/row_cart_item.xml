@@ -8,8 +8,6 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
         >
 
@@ -17,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingHorizontal="8dp"
             >
             <ImageView
                 android:id="@+id/imgBookCart"
@@ -71,60 +68,54 @@
                         android:textSize="16sp"
                         android:textColor="@color/second_400"
                         android:textStyle="bold"
-                        />
-
-                    <TextView
-                        android:id="@+id/txtPercentCart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:text="-5%"
-                        android:textSize="14sp"
-                        android:background="@drawable/custom_text"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="2dp"
-                        android:textColor="@color/second_400"
+                        android:layout_weight="1"
                         />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:gravity="center"
-                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginHorizontal="8dp"
                         >
 
-                        <Button
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnSubtract"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:text="-"
                             android:textSize="16sp"
-                            android:gravity="center"
-                            android:textColor="#fff"
-                            android:layout_weight="1"
                             android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/primary_400"
+                            android:backgroundTint="@color/primary_50"
+                            android:layout_weight="1"
+                            app:cornerRadius="4dp"
                             />
 
                         <TextView
                             android:id="@+id/txtQuantity"
-                            android:layout_width="wrap_content"
+                            android:layout_width="24dp"
                             android:layout_height="wrap_content"
                             android:text="1"
+                            android:gravity="center"
                             android:textSize="16sp"
                             />
 
-                        <Button
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnAdd"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:text="+"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:gravity="center"
                             android:layout_gravity="center"
-                            android:textColor="#fff"
+                            android:textColor="@color/primary_400"
+                            android:backgroundTint="@color/primary_50"
                             android:layout_weight="1"
+                            app:cornerRadius="4dp"
                             />
                     </LinearLayout>
                 </LinearLayout>

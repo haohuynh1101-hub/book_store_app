@@ -64,7 +64,6 @@ public class CartAdapter extends BaseAdapter {
             viewHolder.btnAdd=convertView.findViewById(R.id.btnAdd);
             viewHolder.btnSubtract=convertView.findViewById(R.id.btnSubtract);
             viewHolder.txtAuthor=convertView.findViewById(R.id.txtAuthorCart);
-            viewHolder.txtPercent=convertView.findViewById(R.id.txtPercentCart);
             viewHolder.txtQuantity=convertView.findViewById(R.id.txtQuantity);
             viewHolder.rbStar=convertView.findViewById(R.id.rbStarCart);
 

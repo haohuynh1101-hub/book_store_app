@@ -87,11 +87,9 @@ public class HomeFragment extends Fragment {
 
                         try {
                             int length=response.getJSONArray("data").length();
-
                             if(response!=null){
-                                for (int i=0;i<length;i++){
+                                for (int i=0;i<length-20;i++){
                                     JSONObject jsonObject = response.getJSONArray("data").getJSONObject(i);
-
                                     int Id = jsonObject.getInt("id");
                                     String Name = jsonObject.getString("name");
                                     Double Price = jsonObject.getDouble("price");
@@ -102,8 +100,6 @@ public class HomeFragment extends Fragment {
                                     arrBookBestSeller.add(new BookModel(Id, Name,"",author,Img, Price,rate,discount_rate));
 
                                     bestSellerAdapter.notifyDataSetChanged();
-
-
                                 }
 
                                 for (int i=0;i<length;i++){

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 
 public class ProfileFragment extends Fragment {
@@ -41,8 +44,14 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater,container,false);
 
         addEvents();
-
+        addControls();
         return binding.getRoot();
+    }
+
+    private void addControls() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Picasso.get().load(user.getPhotoUrl()).placeholder(R.drawable.noimage).error(R.drawable.error).into(binding.imgProfile);
+        binding.txtEmail.setText(user.getEmail());
     }
 
     private void addEvents() {

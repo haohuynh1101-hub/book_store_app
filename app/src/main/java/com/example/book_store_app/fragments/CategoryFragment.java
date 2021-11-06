@@ -1,66 +1,58 @@
 package com.example.book_store_app.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.book_store_app.R;
+import com.example.book_store_app.adapter.CartAdapter;
+import com.example.book_store_app.adapter.CategoryAdapter;
+import com.example.book_store_app.databinding.FragmentCartBinding;
+import com.example.book_store_app.databinding.FragmentCategoryBinding;
+import com.example.book_store_app.models.CategoryModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CategoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class CategoryFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CategoryFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CategoryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CategoryFragment newInstance(String param1, String param2) {
-        CategoryFragment fragment = new CategoryFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    FragmentCategoryBinding binding;
+    Context context;
+    CategoryAdapter categoryAdapter;
+    ArrayList<CategoryModel> arrCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false);
+        context=getActivity();
+        binding = FragmentCategoryBinding.inflate(inflater,container,false);
+        addControls();
+        return binding.getRoot();
+    }
+
+    private void addControls() {
+        arrCategory=new ArrayList<>();
+        arrCategory.add(new CategoryModel(1,"Kinh tế",R.drawable.image_category,"#52A593"));
+        arrCategory.add(new CategoryModel(2,"Tâm lý",R.drawable.image_psy,"#FFC653"));
+        arrCategory.add(new CategoryModel(3,"Khoa học",R.drawable.image_science,"#52A593"));
+        arrCategory.add(new CategoryModel(4,"Truyện tranh",R.drawable.image_comic,"#FFC653"));
+
+        categoryAdapter=new CategoryAdapter(getContext(),arrCategory);
+        binding.rvPopularCategory.setHasFixedSize(true);
+
+        binding.rvPopularCategory.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+        binding.rvPopularCategory.setItemAnimator(new DefaultItemAnimator());
+        binding.rvPopularCategory.setAdapter(categoryAdapter);
     }
 }

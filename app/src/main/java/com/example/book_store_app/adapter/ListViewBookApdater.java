@@ -84,7 +84,7 @@ public class ListViewBookApdater extends  RecyclerView.Adapter<ListViewBookApdat
 
     }
 
-    public class ItemHolder extends RecyclerView.ViewHolder {
+    public static class ItemHolder extends RecyclerView.ViewHolder {
         LinearLayout layoutItem;
 
         ImageView imgBook;

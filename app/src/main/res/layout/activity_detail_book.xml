@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.DetailBookActivity"
     android:orientation="vertical"
+    android:id="@+id/layoutDetailContainer"
     >
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbBackBookDetail"
