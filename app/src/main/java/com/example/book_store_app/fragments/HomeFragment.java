@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
 
     FragmentHomeBinding binding;
 
-    int[] sampleImages = {R.drawable.image_banner1, R.drawable.image_banner1, R.drawable.image_banner1};
+    int[] sampleImages = {R.drawable.image_banner1, R.drawable.image_banner2, R.drawable.image_banner3};
 
 
     @Override
