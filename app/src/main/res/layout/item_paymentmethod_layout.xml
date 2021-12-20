@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="@drawable/custom_book_bestseller"
+    >
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/imgPaymentMethod"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/img_login_second"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/txtPaymentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanh toán tiền mặt"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="16dp"
+        />
+</LinearLayout>

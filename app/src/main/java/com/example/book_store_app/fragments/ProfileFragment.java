@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 
 import com.example.book_store_app.R;
 import com.example.book_store_app.activities.LoginActivity;
@@ -23,11 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 
 public class ProfileFragment extends Fragment {
-    Context context;
     FragmentProfileBinding binding;
-
 
 
     @Override
@@ -40,32 +41,20 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        context=getActivity();
         binding = FragmentProfileBinding.inflate(inflater,container,false);
-
-        addEvents();
         addControls();
+
         return binding.getRoot();
+
+
     }
 
     private void addControls() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Picasso.get().load(user.getPhotoUrl()).placeholder(R.drawable.noimage).error(R.drawable.error).into(binding.imgProfile);
+        binding.txtFullName.setText(user.getDisplayName());
         binding.txtEmail.setText(user.getEmail());
     }
 
-    private void addEvents() {
-        binding.btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AuthUI.getInstance().signOut(context).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Intent intent = new Intent(context, LoginActivity.class);
-                        startActivity(intent);
-                    }
-                });
-            }
-        });
-    }
+
 }

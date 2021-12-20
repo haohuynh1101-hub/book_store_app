@@ -43,7 +43,7 @@ public class CartAdapter extends BaseAdapter {
         return i;
     }
 
-    public class ViewHolder{
+    public static class ViewHolder{
         public TextView txtTitle,txtAuthor,txtPrice,txtPercent,txtQuantity;
         Button btnAdd,btnSubtract;
         public ImageView imgBook;
