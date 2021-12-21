@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="10"
     tools:context=".activities.PaymentActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,73 +15,149 @@
         app:title="Thanh toán"
         app:titleTextColor="#fff" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="9">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            >
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_baseline_location_on_24" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="8dp"
-                >
+                android:orientation="horizontal"
+                android:padding="8dp">
 
-                <TextView
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_baseline_location_on_24" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Địa chỉ nhận hàng"
-                    android:textSize="20sp" />
+                    android:layout_marginHorizontal="8dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lương Trường Phước | 0834129238
-                Tổ 8, thôn An Thành 1, xã Bình An,
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Địa chỉ nhận hàng"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lương Trường Phước | 0834129238 Tổ 8, thôn An Thành 1, xã Bình An,
                 huyện Thăng Bình, tỉnh Quảng Nam"
-                    android:textSize="20sp" />
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_chevron_right_24" />
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_chevron_right_24"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF9CA"
+                android:padding="8dp"
+                android:text="Chọn phương thức thanh toán"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+
+            <ListView
+                android:id="@+id/lvPaymentMethod"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:text="Phương thức nhận hàng: Nhanh"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="16.000đ"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_baseline_chevron_right_24" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnDeliveryMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/truck" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:text="Nhận hàng vào 15/12 - 31/12"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:text="Thời gian giao hàng: Tất cả các ngày trong tuần"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Chọn phương thức thanh toán"
-            android:padding="8dp"
-            android:background="#FFF9CA"
-            />
+    </ScrollView>
 
-        <ListView
-            android:id="@+id/lvPaymentMethod"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_weight="1">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,23 +168,23 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="left|center"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="left|center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tổng tiền:"
                     android:textColor="#000"
-                    android:textStyle="bold"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="right|center"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="right|center">
 
                 <TextView
                     android:id="@+id/txtValue"
@@ -124,13 +199,11 @@
 
     <Button
         android:id="@+id/btnPayment"
-        android:layout_marginHorizontal="16dp"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
         android:text="Thanh toán"
         android:textColor="#fff"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        />
+        android:textSize="20sp" />
 </LinearLayout>
