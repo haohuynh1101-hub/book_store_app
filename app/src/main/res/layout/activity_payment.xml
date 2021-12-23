@@ -13,6 +13,7 @@
         android:layout_height="56dp"
         android:background="@color/primary_300"
         app:title="Thanh toán"
+        app:navigationIcon="@drawable/arrowleft"
         app:titleTextColor="#fff" />
 
     <ScrollView

@@ -14,6 +14,7 @@
         android:layout_height="56dp"
         app:title="Thông tin sản phẩm"
         android:background="@color/primary_300"
+        app:navigationIcon="@drawable/close"
         app:titleTextColor="#fff"
         />
 
