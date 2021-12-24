@@ -155,6 +155,32 @@
       android:background="@color/gray_400"
       android:layout_marginBottom="8dp"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đơn hàng của tôi"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/primary_400"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginVertical="8dp"
+        >
+        <ImageView
+            android:id="@+id/imgMyBag"
+            android:clickable="true"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="8dp"
+            android:background="@drawable/custom_my_cart"
+            android:src="@drawable/shoppingbag"/>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -230,30 +256,30 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@drawable/custom_book_bestseller"
-        android:layout_marginBottom="8dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vô hiệu hóa tài khoản"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            android:textColor="@color/gray_400"
-            />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="8dp"-->
+<!--        android:background="@drawable/custom_book_bestseller"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        >-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Vô hiệu hóa tài khoản"-->
+<!--            android:textSize="20sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textColor="@color/gray_400"-->
+<!--            />-->
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_baseline_chevron_right_24"
-            android:layout_gravity="center"
-            />
-    </LinearLayout>
+<!--        <ImageView-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:src="@drawable/ic_baseline_chevron_right_24"-->
+<!--            android:layout_gravity="center"-->
+<!--            />-->
+<!--    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"

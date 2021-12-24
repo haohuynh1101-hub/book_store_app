@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/logo_book"
         android:supportsRtl="true"
         android:theme="@style/Theme.Book_Store_App">
+        <activity android:name=".activities.MyCartActivity"></activity>
         <activity android:name=".activities.PaymentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +22,7 @@
         <activity android:name=".activities.SignupActivity" />
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity android:name=".activities.MainActivity" />
     </application>
 
