@@ -1,6 +1,7 @@
 package com.example.book_store_app.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.book_store_app.R;
 import com.example.book_store_app.activities.MainActivity;
+import com.example.book_store_app.activities.PaymentActivity;
 import com.example.book_store_app.adapter.CartAdapter;
 import com.example.book_store_app.databinding.FragmentCartBinding;
 import com.example.book_store_app.databinding.FragmentHomeBinding;
@@ -57,6 +59,14 @@ public class CartFragment extends Fragment {
     private void addControls() {
         cartAdapter=new CartAdapter(getContext(),MainActivity.cartModels);
         binding.lvCart.setAdapter(cartAdapter);
+
+        binding.btnPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void eventUtil() {

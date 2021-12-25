@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Book_Store_App">
         <activity android:name=".activities.MyCartActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activities.PaymentActivity">
 
@@ -24,7 +20,13 @@
         <activity android:name=".activities.SignupActivity" />
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activities.MainActivity" />
     </application>
 

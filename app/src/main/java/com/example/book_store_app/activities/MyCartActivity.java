@@ -2,7 +2,9 @@ package com.example.book_store_app.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.book_store_app.R;
 import com.example.book_store_app.adapter.MyCartAdapter;
@@ -36,5 +38,12 @@ public class MyCartActivity extends AppCompatActivity {
         myCartModels = new ArrayList<>();
         myCartAdapter = new MyCartAdapter(MyCartActivity.this, myCartModels);
         binding.lvMyCart.setAdapter(myCartAdapter);
+
+       binding.tbMyCart.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               finish();
+           }
+       });
     }
 }

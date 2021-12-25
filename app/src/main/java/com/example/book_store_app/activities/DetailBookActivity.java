@@ -126,6 +126,13 @@ public class DetailBookActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
         });
+
+        binding.tbBackBookDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 

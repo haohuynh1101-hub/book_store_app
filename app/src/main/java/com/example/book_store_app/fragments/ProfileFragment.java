@@ -15,6 +15,7 @@ import android.widget.Adapter;
 
 import com.example.book_store_app.R;
 import com.example.book_store_app.activities.LoginActivity;
+import com.example.book_store_app.activities.MyCartActivity;
 import com.example.book_store_app.databinding.FragmentHomeBinding;
 import com.example.book_store_app.databinding.FragmentProfileBinding;
 import com.firebase.ui.auth.AuthUI;
@@ -54,6 +55,13 @@ public class ProfileFragment extends Fragment {
         Picasso.get().load(user.getPhotoUrl()).placeholder(R.drawable.noimage).error(R.drawable.error).into(binding.imgProfile);
         binding.txtFullName.setText(user.getDisplayName());
         binding.txtEmail.setText(user.getEmail());
+        binding.imgMyBag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), MyCartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
