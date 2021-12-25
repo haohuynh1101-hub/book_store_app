@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".activities.MyCartActivity">
 
+
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbBackBookDetail"
         android:layout_width="match_parent"
@@ -15,6 +17,39 @@
         app:title="Đơn hàng của tôi"
         app:navigationIcon="@drawable/arrowleft"
         app:titleTextColor="#fff" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="scrollable"
+        >
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tất cả đơn"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Đang vận chuyển"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Chờ thanh toán"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Đang xử lý"
+            />
+
+    </com.google.android.material.tabs.TabLayout>
+
 
     <ListView
         android:layout_width="match_parent"
