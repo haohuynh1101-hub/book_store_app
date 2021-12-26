@@ -94,11 +94,11 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.It
             super(itemView);
             layoutItemVertical=itemView.findViewById(R.id.layoutItemVertical);
 
-            imgBook=itemView.findViewById(R.id.imgBook);
-            txtTitle=itemView.findViewById(R.id.txtTitle);
-            txtPrice=itemView.findViewById(R.id.txtPrice);
-            txtAuthor=itemView.findViewById(R.id.txtAuthor);
-            txtPercent=itemView.findViewById(R.id.txtPercent);
+//            imgBook=itemView.findViewById(R.id.imgBook);
+//            txtTitle=itemView.findViewById(R.id.txtTitle);
+//            txtPrice=itemView.findViewById(R.id.txtPrice);
+//            txtAuthor=itemView.findViewById(R.id.txtAuthor);
+//            txtPercent=itemView.findViewById(R.id.txtPercent);
 
             rbStar=itemView.findViewById(R.id.rbStar);
         }
