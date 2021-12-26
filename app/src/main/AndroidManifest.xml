@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.book_store_app">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,20 +11,23 @@
         android:roundIcon="@mipmap/logo_book"
         android:supportsRtl="true"
         android:theme="@style/Theme.Book_Store_App">
-        <activity android:name=".activities.OrderActivity"></activity>
-        <activity android:name=".activities.MyCartActivity"></activity>
-        <activity android:name=".activities.PaymentActivity"></activity>
+        <activity android:name=".activities.SlashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.OrderActivity" />
+        <activity android:name=".activities.MyCartActivity" />
+        <activity android:name=".activities.PaymentActivity" />
         <activity android:name=".activities.DetailBookActivity" />
         <activity android:name=".activities.ForgotPasswordActivity" />
         <activity android:name=".activities.SignupActivity" />
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activities.MainActivity" />
     </application>
