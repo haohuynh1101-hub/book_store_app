@@ -100,7 +100,7 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.It
             txtAuthor=itemView.findViewById(R.id.txtAuthor);
             txtPercent=itemView.findViewById(R.id.txtPercent);
 
-            rbStar=itemView.findViewById(R.id.rbStar);
+//            rbStar=itemView.findViewById(R.id.rbStar);
         }
     }
 }
