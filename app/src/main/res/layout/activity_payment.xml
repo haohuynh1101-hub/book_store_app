@@ -38,6 +38,8 @@
                     android:src="@drawable/ic_baseline_location_on_24" />
 
                 <LinearLayout
+                    android:id="@+id/lnAddress"
+                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
@@ -188,7 +190,7 @@
                 android:gravity="right|center">
 
                 <TextView
-                    android:id="@+id/txtValue"
+                    android:id="@+id/txtValuePayment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Giá trị:"

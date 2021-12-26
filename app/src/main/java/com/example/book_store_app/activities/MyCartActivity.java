@@ -32,6 +32,9 @@ public class MyCartActivity extends AppCompatActivity {
 
     private void getData() {
         myCartModels.add(new MyCartModel(0, "Trầm lặng - Sức mạnh tiềm ẩn của người hướng nội", "", "author", "https://salt.tikicdn.com/cache/400x400/ts/product/ac/80/5c/f91ecd9f50a35284e3fd68accf974d1d.jpg.webp", 12.000, 1, 1, "VN-123", "IN_PROGRESS"));
+        myCartModels.add(new MyCartModel(1, "Đừng sợ cuộc chơi", "", "", "https://salt.tikicdn.com/cache/400x400/ts/product/46/2a/0c/817b892dcaf521ca203c8a1d14c47d57.jpg.webp", 102.000, 1, 1, "US-123", "CANCEL"));
+        myCartModels.add(new MyCartModel(2, "Muôn kiếp nhân sinh", "", "author", "https://salt.tikicdn.com/cache/400x400/ts/product/aa/ce/e5/38cde4cbfa65e85905301a1f759d5e4d.jpg.webp", 42.000, 1, 1, "GE-123", "SUCCESS"));
+
     }
 
     private void addControls() {

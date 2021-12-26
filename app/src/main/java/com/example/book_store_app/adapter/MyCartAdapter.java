@@ -1,8 +1,10 @@
 package com.example.book_store_app.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.book_store_app.R;
+import com.example.book_store_app.activities.OrderActivity;
 import com.example.book_store_app.models.MyCartModel;
 import com.squareup.picasso.Picasso;
 
@@ -98,6 +101,16 @@ public class MyCartAdapter extends BaseAdapter {
         viewHolder.txtStatus.setText(handleColorStatus(status));
         viewHolder.txtIdOrder.setText(myCartModel.getIdOrder());
 
+        viewHolder.btnViewDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, OrderActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("book-mycart",myCartModel);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
 //        DecimalFormat decimalFormat=new DecimalFormat("###,###,###");
 //        viewHolder.txtPrice.setText(decimalFormat.format(cartModel.getPrice()) +"đ");
 //        viewHolder.txtQuantity.setText(String.valueOf(cartModel.getQuantity()));

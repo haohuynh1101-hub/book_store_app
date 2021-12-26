@@ -2,6 +2,7 @@ package com.example.book_store_app.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.example.book_store_app.databinding.ActivityPaymentBinding;
 import com.example.book_store_app.models.PaymentMethod;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class PaymentActivity extends AppCompatActivity {
@@ -32,6 +34,7 @@ public class PaymentActivity extends AppCompatActivity {
         addControls();
         initData();
         addEvents();
+        eventUtil();
     }
 
     private void addEvents() {
@@ -39,8 +42,18 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 bottomSheetDialog = new BottomSheetDialog(PaymentActivity.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.bottom_sheet_layout, findViewById(R.id.bottomSheetContainer));
+                View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.bottom_sheet_layout, findViewById(R.id.btsMethodShip));
                bottomSheetDialog.setContentView(bottomSheetView);
+                bottomSheetDialog.show();
+            }
+        });
+
+        binding.lnAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetDialog = new BottomSheetDialog(PaymentActivity.this, R.style.BottomSheetDialogTheme);
+                View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.address_bottom_sheet, findViewById(R.id.btsAddress));
+                bottomSheetDialog.setContentView(bottomSheetView);
                 bottomSheetDialog.show();
             }
         });
@@ -60,5 +73,28 @@ public class PaymentActivity extends AppCompatActivity {
         paymentMethodAdapter = new PaymentMethodAdapter(PaymentActivity.this, paymentMethods);
         binding.lvPaymentMethod.setAdapter(paymentMethodAdapter);
 
+        binding.btnPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(PaymentActivity.this,OrderActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.tbBackBookDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void eventUtil() {
+        double toltalMoney = 0;
+        for (int i = 0; i < MainActivity.cartModels.size(); i++) {
+            toltalMoney = toltalMoney + MainActivity.cartModels.get(i).getPrice();
+        }
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        binding.txtValuePayment.setText(decimalFormat.format(toltalMoney) + " đ");
     }
 }
