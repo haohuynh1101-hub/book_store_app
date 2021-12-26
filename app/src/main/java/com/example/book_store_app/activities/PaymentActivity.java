@@ -38,6 +38,7 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+        //click to open bottom date
         binding.lnDeliveryMethod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
