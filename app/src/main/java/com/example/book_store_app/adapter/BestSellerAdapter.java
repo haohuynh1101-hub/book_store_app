@@ -71,7 +71,6 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.It
         bundle.putSerializable("book-info",book);
         intent.putExtras(bundle);
         context.startActivity(intent);
-        Log.d("TAG", "handleGotoDetailBook: "+"");
     }
 
 
